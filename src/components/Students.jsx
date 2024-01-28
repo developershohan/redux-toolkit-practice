@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDisPatch } from 'react-redux'
+import  { useState } from 'react'
+import {useDispatch} from 'react-redux'
 import { createstudent } from '../features/student/studentApiSlice'
 
 
@@ -7,7 +7,7 @@ import { createstudent } from '../features/student/studentApiSlice'
 const Students = () => {
 
 
-    const dispatch = useDisPatch()
+    const dispatch = useDispatch()
     const [input, setInput] = useState({
         name: "",
         roll: "",

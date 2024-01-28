@@ -1,3 +1,11 @@
 {
-    "students":[]
+  "students": [
+    {
+      "id": "bd42",
+      "name": "Remedios Robles",
+      "roll": "Irure ut quis ab ull",
+      "email": "namak@mailinator.com",
+      "photo": "Adipisci mollitia ex"
+    }
+  ]
 }

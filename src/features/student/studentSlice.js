@@ -5,7 +5,8 @@ const studentslice = createSlice({
     initialState: {
         students:[]
     },
-    reducers: []
+    reducers: {},
+    extraReducers:(builder)=>{}
 })
 export const {} = studentslice.actions
 
