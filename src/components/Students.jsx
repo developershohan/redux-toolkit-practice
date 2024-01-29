@@ -1,14 +1,14 @@
 
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { createStudent, getStudent } from '../features/student/studentApiSlice'
+import { createStudent, deleteStudent, getStudent } from '../features/student/studentApiSlice'
 import { useSelector } from 'react-redux'
 import { studentSelector } from '../features/student/studentSlice'
 
 
 
 const Students = () => {
-    const {loading} = useSelector(studentSelector)
+    const { loading, students } = useSelector(studentSelector)
 
 
     const dispatch = useDispatch()
@@ -18,9 +18,9 @@ const Students = () => {
         email: "",
         photo: ""
     })
-useEffect(() => {
-dispatch(getStudent())
-}, [dispatch])
+    useEffect(() => {
+        dispatch(getStudent())
+    }, [dispatch])
 
     const handleInputChange = (e) => {
         setInput((presState) => ({
@@ -29,7 +29,8 @@ dispatch(getStudent())
         }))
     }
 
-    const handleSubmit =()=>{
+
+    const handleSubmit = () => {
         dispatch(createStudent(input))
     }
 
@@ -41,6 +42,13 @@ dispatch(getStudent())
             <input type="text" placeholder='email' name='email' value={input.email} onChange={handleInputChange} />
             <input type="text" placeholder='photo' name='photo' value={input.photo} onChange={handleInputChange} />
             <button onClick={handleSubmit}>add</button>
+            {students && students.map((item, index) => {
+                return <ul key={index}>
+                    <li>{item.name} - {item.roll} - {item.email} - <img style={{ width: "100px", height: "100px" }} src={item.photo} alt="" /> <button onClick={()=>dispatch(deleteStudent(item.id))}>x</button> </li>
+
+                </ul>
+            })}
+
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { createStudent, getStudent } from "./studentApiSlice"
+import { createStudent, deleteStudent, getStudent } from "./studentApiSlice"
 
 const studentSlice = createSlice({
     name: "Student",
@@ -21,11 +21,24 @@ const studentSlice = createSlice({
             state.loading = false,
             state.error = action.error.message
         ]).addCase(getStudent.pending,(state)=>{
-            state.loading = false
+            state.loading = true
         }).addCase(getStudent.fulfilled,(state,action)=>{
             state.loading =false,
             state.message = "get all data",
             state.students = [...action.payload]
+        }).addCase(getStudent.rejected,(state,action)=>{
+            state.loading = false,
+            state.error = action.error.message
+        }).addCase(deleteStudent.pending,(state)=>{
+            state.loading = true
+            
+        }).addCase(deleteStudent.fulfilled,(state,action)=>{
+            state.loading = false,
+            state.message = `student deleted`,
+            state.students = state.students.filter(data=>data.id !== action.payload.id)
+        }).addCase(deleteStudent.rejected,(state,action)=>{
+            state.loading = false,
+            state.error = action.error.message
         })
     }
 })

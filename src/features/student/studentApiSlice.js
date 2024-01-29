@@ -21,3 +21,13 @@ export const getStudent = createAsyncThunk("student/getStudent", async (data) =>
 
     }
 })
+export const deleteStudent = createAsyncThunk("student/deleteStudent", async (id) => {
+    try {
+        const res = await axios.delete(`http://localhost:6060/students/${id}`)
+        return res.data
+    } catch (error) {
+        throw new Error(error.message)
+
+    }
+})
+
