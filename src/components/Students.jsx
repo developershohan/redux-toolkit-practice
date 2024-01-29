@@ -1,14 +1,9 @@
-<<<<<<< HEAD
+
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createStudent, getStudent } from '../features/student/studentApiSlice'
 import { useSelector } from 'react-redux'
 import { studentSelector } from '../features/student/studentSlice'
-=======
-import  { useState } from 'react'
-import {useDispatch} from 'react-redux'
-import { createstudent } from '../features/student/studentApiSlice'
->>>>>>> 6a5586cb1d6005b6c752ed8d0c08affc6ede7f40
 
 
 

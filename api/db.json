@@ -1,3 +1,18 @@
 {
-    "students":[]
+  "students": [
+    {
+      "id": "fe54",
+      "name": "Kaden Frederick",
+      "roll": "Iure esse totam ut ",
+      "email": "lakek@mailinator.com",
+      "photo": "Est sit placeat fug"
+    },
+    {
+      "id": "4cd6",
+      "name": "Kaden Frederick",
+      "roll": "Iure esse totam ut ",
+      "email": "lakek@mailinator.com",
+      "photo": "Est sit placeat fug"
+    }
+  ]
 }
